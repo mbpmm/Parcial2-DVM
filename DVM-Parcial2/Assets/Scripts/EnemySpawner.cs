@@ -29,11 +29,13 @@ public class EnemySpawner : MonoBehaviour
                 Quaternion spawnRotation = Quaternion.identity;
                 if (waves%2==0)
                 {
-                    Instantiate(enemy1, spawnPosition, spawnRotation);
+                    GameObject b = ObjectPool.instance.GetPooledObject("Vampire");
+                    b.transform.position = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), -1.3f, Random.Range(-spawnValues.z, spawnValues.z));
                 }
                 else
                 {
-                    Instantiate(enemy2, spawnPosition, spawnRotation);
+                    GameObject b = ObjectPool.instance.GetPooledObject("Zombie");
+                    b.transform.position = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), -1.3f, Random.Range(-spawnValues.z, spawnValues.z));
                 }
                 
                 yield return new WaitForSeconds(spawnWait);
