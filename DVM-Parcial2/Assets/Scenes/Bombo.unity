@@ -1803,6 +1803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907292808}
+  - component: {fileID: 907292809}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1826,6 +1827,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &907292809
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907292807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &920672229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2329,7 +2348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959308587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 848404733}
@@ -3225,7 +3244,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388326161}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b1de882843f4cd4e8891a4dd414cd41, type: 3}
   m_Name: 
@@ -3234,10 +3253,10 @@ MonoBehaviour:
   enemy2: {fileID: -927199367670048503, guid: 9d1fda0546f3de044a43c85551c6e7c4, type: 3}
   spawnValues: {x: 17.38, y: -1.18, z: 18.51}
   enemies: 8
-  spawnWait: 0.6
-  startWait: 1.58
+  spawnWait: 0.27
+  startWait: 0.09
   waveWait: 2.86
-  timer: 3.44
+  timer: 0
   waves: 4
 --- !u!4 &1388326164
 Transform:
@@ -4405,6 +4424,12 @@ MonoBehaviour:
   - objectToPool: {fileID: 2278809592158880438, guid: fb0fb137fe7e22c43873fcd4b5aa04ae,
       type: 3}
     amountToPool: 6
+  - objectToPool: {fileID: 7571507415897677640, guid: 7814fee34af37434c92e0f41d1b675e4,
+      type: 3}
+    amountToPool: 12
+  - objectToPool: {fileID: 7310237051127337174, guid: a655dda6235a04448ad6b786cc466e33,
+      type: 3}
+    amountToPool: 12
   pooledObjects: []
 --- !u!4 &1995234794
 Transform:

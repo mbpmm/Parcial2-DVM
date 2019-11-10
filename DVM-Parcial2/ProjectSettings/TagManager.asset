@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ammo
   - HP
+  - Vampire
+  - Zombie
   layers:
   - Default
   - TransparentFX
