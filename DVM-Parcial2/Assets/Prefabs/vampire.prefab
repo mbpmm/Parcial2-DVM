@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 1059448734578341103}
   - component: {fileID: 1993564614169098795}
   - component: {fileID: 584595798746371546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: armRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1059448734578341103
 Transform:
@@ -91,12 +91,12 @@ GameObject:
   - component: {fileID: 825023080437591019}
   - component: {fileID: 4887063384269656111}
   - component: {fileID: 8662305550328183833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &825023080437591019
 Transform:
@@ -171,12 +171,12 @@ GameObject:
   - component: {fileID: 3354904214617830331}
   - component: {fileID: 6445581309694567775}
   - component: {fileID: 4133517859005511397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: armLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3354904214617830331
 Transform:
@@ -251,12 +251,12 @@ GameObject:
   - component: {fileID: 1894390948748112646}
   - component: {fileID: 8898140677525612902}
   - component: {fileID: 393864874519730736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: legRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1894390948748112646
 Transform:
@@ -330,12 +330,12 @@ GameObject:
   - component: {fileID: 4478849693183406917}
   - component: {fileID: 239853745873141392}
   - component: {fileID: 1502015599085040885}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4478849693183406917
 Transform:
@@ -408,12 +408,12 @@ GameObject:
   - component: {fileID: 3701973458078788461}
   - component: {fileID: 3463707254242118252}
   - component: {fileID: 3574530576451620423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: legLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3701973458078788461
 Transform:
@@ -485,12 +485,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6865803851686473051}
-  m_Layer: 0
+  - component: {fileID: 1939714946328858343}
+  - component: {fileID: 9208920549643885732}
+  - component: {fileID: 1869196597792917760}
+  m_Layer: 8
   m_Name: vampire
   m_TagString: Vampire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6865803851686473051
 Transform:
@@ -513,6 +516,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1939714946328858343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7571507415897677640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e382fc7f4d0c9ff448f61e5740d57444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9208920549643885732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7571507415897677640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!65 &1869196597792917760
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7571507415897677640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 0.77, z: 0.3}
+  m_Center: {x: 0, y: 0.38, z: 0}
 --- !u!1 &8780253396346209700
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,12 +571,12 @@ GameObject:
   - component: {fileID: 3578336916128640242}
   - component: {fileID: 693629286422099193}
   - component: {fileID: 4764670086174259510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3578336916128640242
 Transform:
