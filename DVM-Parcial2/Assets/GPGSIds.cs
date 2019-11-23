@@ -26,6 +26,7 @@ public static class GPGSIds
 {
         public const string achievement_2000_puntos = "CgkIz76O5PUKEAIQAg"; // <GPGSID>
         public const string achievement_5_powerups_conseguidos = "CgkIz76O5PUKEAIQAw"; // <GPGSID>
+        public const string leaderboard_highscore = "CgkIz76O5PUKEAIQBA"; // <GPGSID>
         public const string achievement_1000_puntos = "CgkIz76O5PUKEAIQAQ"; // <GPGSID>
 
 }

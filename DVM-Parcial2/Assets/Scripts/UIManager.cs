@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     public Text wavesText;
     public Text ammoText;
     public Text hpText;
-
+    public GameObject deathscreen;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +26,11 @@ public class UIManager : MonoBehaviour
         wavesText.text = "Waves: " + es.waves;
         ammoText.text = "Ammo: " + player.ammo;
         hpText.text = "HP: " + player.HP;
+
+        if (player.isDead)
+        {
+            deathscreen.SetActive(true);
+            player.isDead = false;
+        }
     }
 }

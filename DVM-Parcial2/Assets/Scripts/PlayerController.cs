@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     Vector3 vel;
     public bool isGrounded;
 
+    public bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +118,11 @@ public class PlayerController : MonoBehaviour
         }
 #endif
 
+        if (HP<0)
+        {
+            HP = 0;
+            isDead = true;
+        }
     }
 
     public void Shoot()
