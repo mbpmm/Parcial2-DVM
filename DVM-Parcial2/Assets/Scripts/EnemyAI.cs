@@ -29,4 +29,5 @@ public class EnemyAI : MonoBehaviour
             GameManager.Get().AddScore();
         }
     }
+
 }

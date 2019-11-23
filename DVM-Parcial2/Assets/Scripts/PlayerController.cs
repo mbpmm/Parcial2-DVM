@@ -20,17 +20,29 @@ public class PlayerController : MonoBehaviour
 
     public CharacterController controller;
     public float speed;
+    public float gravity=-9.81f;
+
+    public Transform groundCheck;
+    public float groundDistance;
+    public LayerMask ground;
+
+    Vector3 vel;
+    public bool isGrounded;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-//#if UNITY_STANDALONE
+        
+
+
+#if UNITY_STANDALONE
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -40,11 +52,22 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ground);
+
+        if (isGrounded && vel.y < 0)
+        {
+            vel.y = -2f;
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+
+        vel.y += gravity * Time.deltaTime;
+
+        controller.Move(vel * Time.deltaTime);
 
         if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0))
         {
@@ -55,7 +78,7 @@ public class PlayerController : MonoBehaviour
                 ammo--;
             }
         }
-        //#endif
+#endif
 
 
 #if UNITY_ANDROID
@@ -71,19 +94,25 @@ public class PlayerController : MonoBehaviour
             switch (layerHitted)
             {
                 case "Enemies":
-                    //if (Time.time > nextFire)
-                    //{
-                    //    nextFire = Time.time + fireRate;
-                    //    Shoot();
-                    //    ammo--;
-                    //}
+                    if (Time.time > nextFire)
+                    {
+                        nextFire = Time.time + fireRate;
+                        Shoot();
+                        ammo--;
+                    }
                     break;
                 case "Ammo":
-                    ammo += 15;
+                    if (ammo<100f)
+                    {
+                        ammo += 15;
+                    }
                     hit.transform.gameObject.SetActive(false);
                     break;
                 case "HP":
-                    HP += 10;
+                    if (HP<100f)
+                    {
+                        HP += 10;
+                    }
                     hit.transform.gameObject.SetActive(false);
                     break;
             }
@@ -103,6 +132,32 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag=="Zombie" || collision.gameObject.tag == "Vampire")
+        {
+            HP -= 10;
+        }
+#if UNITY_STANDALONE
+        if (collision.gameObject.tag == "Ammo")
+        {
+            collision.gameObject.SetActive(false);
+            if (ammo < 100f)
+            {
+                ammo += 15;
+            }
+        }
+        if (collision.gameObject.tag == "HP")
+        {
+            collision.gameObject.SetActive(false);
+            if (HP<100f)
+            {
+                HP += 10;
+            }
+        }
+#endif
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Zombie" || collision.gameObject.tag == "Vampire")
         {
             HP -= 10;
         }
