@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public PlayerController player;
     public EnemySpawner es;
     public Text pointsText;
     public Text wavesText;
+    public Text ammoText;
+    public Text hpText;
 
 
     // Start is called before the first frame update
@@ -21,5 +24,7 @@ public class UIManager : MonoBehaviour
     {
         pointsText.text = "Points: " + GameManager.Get().score;
         wavesText.text = "Waves: " + es.waves;
+        ammoText.text = "Ammo: " + player.ammo;
+        hpText.text = "HP: " + player.HP;
     }
 }
