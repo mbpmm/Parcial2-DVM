@@ -43,21 +43,4 @@ public class BulletController : MonoBehaviour
             timer = 0;
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Zombie")
-        {
-            gameObject.SetActive(false);
-            collision.gameObject.SetActive(false);
-            timer = 0;
-        }
-
-        if (collision.gameObject.tag == "Vampire")
-        {
-            gameObject.SetActive(false);
-            collision.gameObject.SetActive(false);
-            timer = 0;
-        }
-    }
 }

@@ -488,6 +488,8 @@ GameObject:
   - component: {fileID: 1939714946328858343}
   - component: {fileID: 9208920549643885732}
   - component: {fileID: 1869196597792917760}
+  - component: {fileID: -6052787858279803487}
+  - component: {fileID: -3211018436431524442}
   m_Layer: 8
   m_Name: vampire
   m_TagString: Vampire
@@ -504,7 +506,7 @@ Transform:
   m_GameObject: {fileID: 7571507415897677640}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.049999997, y: 0, z: 0.02}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children:
   - {fileID: 3354904214617830331}
   - {fileID: 1059448734578341103}
@@ -528,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e382fc7f4d0c9ff448f61e5740d57444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &9208920549643885732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +563,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.77, z: 0.3}
   m_Center: {x: 0, y: 0.38, z: 0}
+--- !u!54 &-6052787858279803487
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7571507415897677640}
+  serializedVersion: 2
+  m_Mass: 7.16
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!195 &-3211018436431524442
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7571507415897677640}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.3
+  m_Speed: 0.48
+  m_Acceleration: 13
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8780253396346209700
 GameObject:
   m_ObjectHideFlags: 0

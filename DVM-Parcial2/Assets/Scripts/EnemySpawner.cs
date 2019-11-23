@@ -3,9 +3,12 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
+    Transform player;
     public GameObject enemy1;
     public GameObject enemy2;
     public Vector3 spawnValues;
+    public float spawnValueX;
+    public float spawnValueZ;
     public int enemies;
     public float spawnWait;
     public float startWait;
@@ -13,8 +16,10 @@ public class EnemySpawner : MonoBehaviour
     public float timer;
     public int waves;
     private Coroutine spawn;
+    private float offset=5f;
     void Start()
     {
+        player = GameManager.Get().playerGO.transform;
         spawn=StartCoroutine(SpawnWaves());
     }
 
@@ -25,7 +30,16 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < enemies; i++)
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                spawnValueX = Random.Range(-spawnValues.x, spawnValues.x);
+                spawnValueZ = Random.Range(-spawnValues.z, spawnValues.z);
+
+                while ((spawnValueX<player.position.x-offset && spawnValueX < player.position.x + offset) || (spawnValueZ > player.position.z - offset && spawnValueZ < player.position.z + offset))
+                {
+                    spawnValueX = Random.Range(-spawnValues.x, spawnValues.x);
+                    spawnValueZ = Random.Range(-spawnValues.z, spawnValues.z);
+                }
+
+                Vector3 spawnPosition = new Vector3(spawnValueX, spawnValues.y, spawnValueZ);
                 Quaternion spawnRotation = Quaternion.identity;
                 if (waves%2==0)
                 {

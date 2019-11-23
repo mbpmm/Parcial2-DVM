@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class PickupSpawner : MonoBehaviour
 {
-    public List<GameObject> collectableList;
-    public GameObject collectable;
-    public int cantCollectables;
-    public Vector3 pos;
     public int maxX = 19;
     public int maxZ = 38;
-
+    public float timer;
+    public float newSpawnTime;
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        for (int i = 0; i < cantCollectables; i++)
+        timer += Time.deltaTime;
+        if (timer>newSpawnTime)
         {
             CreateCollectable();
+            timer = 0;
         }
     }
 
