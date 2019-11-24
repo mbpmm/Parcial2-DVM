@@ -12,7 +12,8 @@ public class UIManager : MonoBehaviour
     public Text ammoText;
     public Text hpText;
     public GameObject deathscreen;
-    public GameObject getlifeButton;
+    public GameObject deathscreenPC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,17 +30,30 @@ public class UIManager : MonoBehaviour
 
         if (player.isDead)
         {
-            deathscreen.SetActive(true);
+#if UNITY_ANDROID 
+        deathscreen.SetActive(true);  
+#endif
+#if UNITY_STANDALONE
+        deathscreenPC.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+#endif
+
             Time.timeScale = 0;
+            player.HP = 100;
             player.isDead = false;
         }
     }
 
     public void GiveLife()
     {
-        player.HP += 100;
+#if UNITY_ANDROID
         deathscreen.SetActive(false);
-        getlifeButton.SetActive(false);
-        Time.timeScale = 1;
+#endif
+#if UNITY_STANDALONE
+        deathscreenPC.SetActive(false);
+        
+#endif
+        
     }
 }

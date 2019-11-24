@@ -5,14 +5,15 @@ using UnityEngine.Advertisements;
 using System;
 using UnityEngine.SceneManagement;
 
-public class AdsManager : MonoBehaviour
+public class AdsManager : MonobehaviourSingleton<AdsManager>
 {
     private string GameIdAndroid = "3373325";
     private string VideoKey = "video";
     private string RewardedKey = "rewardedVideo";
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         Advertisement.Initialize(GameIdAndroid, true);
     }
 

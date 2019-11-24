@@ -113,6 +113,10 @@ public class PlayerController : MonoBehaviour
                     }
                     hit.transform.gameObject.SetActive(false);
                     break;
+                case "WatchAdButton":
+                    GameManager.Get().WatchAd();
+                    break;
+                    
             }
 
         }

@@ -45,11 +45,21 @@ public class GPSManager : MonobehaviourSingleton<GPSManager>
         PlayGamesPlatform.Instance.SignOut();
     }
 
-    public void UnlockAchievementId(string id)
+    public void UnlockAchievement1000()
     {
-        Social.ReportProgress(id, 100.0f, (bool success) =>
+        Social.ReportProgress(GPGSIds.achievement_1000_puntos, 100.0f, (bool success) =>
         {
-            Debug.Log("paso por aca");
+            if (success)
+                Social.ShowAchievementsUI();
+        });
+    }
+
+    public void UnlockAchievement2000()
+    {
+        Social.ReportProgress(GPGSIds.achievement_2000_puntos, 100.0f, (bool success) =>
+        {
+            if (success)
+                Social.ShowAchievementsUI();
         });
     }
 

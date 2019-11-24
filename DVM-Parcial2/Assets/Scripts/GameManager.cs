@@ -13,29 +13,57 @@ public class GameManager : MonobehaviourSingleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
+#if UNITY_ANDROID
+        GPSManager.Get().SignIn();
+#endif
         playerGO = GameObject.FindGameObjectWithTag("Player");
         playerScript = playerGO.GetComponentInChildren<PlayerController>();
     }
     private void Update()
     {
-        if (score==1000)
-        {
-            GPSManager.Get().UnlockAchievementId("CgkIz76O5PUKEAIQAQ");
-        }
-
-        if (score == 2000)
-        {
-            GPSManager.Get().UnlockAchievementId("CgkIz76O5PUKEAIQAg");
-        }
+        
     }
 
     public void AddScore()
     {
         score+=100;
+
+#if UNITY_ANDROID
+        if (score == 1000)
+        {
+            GPSManager.Get().UnlockAchievement1000();
+        }
+
+        if (score == 2000)
+        {
+            GPSManager.Get().UnlockAchievement2000();
+        }
+#endif
     }
 
     public void GetReward()
     {
-        getlifeButton.SetActive(true);
+        Time.timeScale = 1;
     }
+
+    public void WatchAd()
+    {
+        AdsManager.Get().UIWatchRewardedAd();
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("Bombo");
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit ();
+#endif
+    }
+
+
 }
