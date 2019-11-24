@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AdsManager : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class AdsManager : MonoBehaviour
         if (Advertisement.IsReady(VideoKey))
             Advertisement.Show(VideoKey, so);
         else
-            Debug.Log("No carga, master");
+            Debug.Log("No carga");
     }
 
     public void WatchRewardedVideoAd(Action<ShowResult> result)
@@ -44,7 +45,7 @@ public class AdsManager : MonoBehaviour
         if (Advertisement.IsReady(RewardedKey))
             Advertisement.Show(RewardedKey, so);
         else
-            Debug.Log("No carga, master");
+            Debug.Log("No carga");
     }
 
     public void VideoAdEnded(ShowResult result)
@@ -56,6 +57,7 @@ public class AdsManager : MonoBehaviour
                 break;
             case ShowResult.Finished:
                 Debug.Log("El Ad termino");
+                
                 break;
             case ShowResult.Skipped:
                 Debug.Log("El Ad se skipeo");
@@ -72,6 +74,7 @@ public class AdsManager : MonoBehaviour
                 break;
             case ShowResult.Finished:
                 Debug.Log("El Ad Rewarded termino");
+                GameManager.Get().GetReward();
                 break;
             case ShowResult.Skipped:
                 Debug.Log("El Ad Rewarded se skipeo");

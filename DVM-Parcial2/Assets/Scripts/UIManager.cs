@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public Text ammoText;
     public Text hpText;
     public GameObject deathscreen;
-
+    public GameObject getlifeButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,16 @@ public class UIManager : MonoBehaviour
         if (player.isDead)
         {
             deathscreen.SetActive(true);
+            Time.timeScale = 0;
             player.isDead = false;
         }
+    }
+
+    public void GiveLife()
+    {
+        player.HP += 100;
+        deathscreen.SetActive(false);
+        getlifeButton.SetActive(false);
+        Time.timeScale = 1;
     }
 }

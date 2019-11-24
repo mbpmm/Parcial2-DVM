@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent agent;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         agent=GetComponent<NavMeshAgent>();
         player = GameManager.Get().playerGO.transform;
